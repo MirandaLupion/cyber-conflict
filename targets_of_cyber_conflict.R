@@ -29,13 +29,6 @@ data_target <- data_raw %>%
   drop_na()
 
 
-
-
-# data_taget <-data_target[order(data_target$n), ]
-# data_target$Category <- factor(data_target$Category, levels = data_target$Category)
-# # 
-# # 
-# # 
 ggplot(data_target, aes(x = gov, fill = gov)) +
   
   geom_bar() +
@@ -49,35 +42,12 @@ ggplot(data_target, aes(x = gov, fill = gov)) +
     axis.ticks.y = element_blank()) +
   
   labs(title="Frequency of State Cyber Operations by Target and Type ", 
-       subtitle = "2006 - 2018",
+       subtitle = "2005 - 2018",
        caption="Graphic: Miranda Lupion
        Data: The Council on Foreign Relations Cyber Operations Tracker",
        x = "Target",
        y = NULL) + 
-  scale_fill_discrete(guide=FALSE)
+  # scale_fill_discrete(guide=FALSE) +
+  scale_fill_manual(guide=FALSE, values = c("Includes Government" = "#D55E00", "Non-Government" = "#0072B2"))
 
   
-# #   # geom_point(color=ifelse(data_target$attack %in% c("y"), 
-# #   #                         "darkgreen", "navy"), 
-# #   #            
-# #   #            size=ifelse(data_target$attack %in% c("y"), 
-# # #   #                        3, 3)) +
-# # #   
-# labs(title="Frequency of State Cyber Attacks by Target, 2006 - 2018", 
-#      subtitle = "sub",
-#       caption="Graphic: Miranda Lupion
-#         Data: The Council on Foreign Relations Cyber Operations Tracker",
-#        x = NULL,
-#        y = NULL) +
-#   
-#    theme_light() +
-#    coord_flip() +
-#    theme(
-#      panel.grid.major.y = element_blank(),
-#    panel.border = element_blank(),
-#     axis.ticks.y = element_blank()) +
-#   
-#  geom_label_repel(aes(x = Category, y = n, label = n), 
-#                 size = 2.5, label.size = .05,
-#                   hjust = "right", vjust = "top") + 
-#   facet_wrap(~Type)
